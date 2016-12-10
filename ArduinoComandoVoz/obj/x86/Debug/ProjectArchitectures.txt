@@ -1,0 +1,1 @@
+D:\IFSP\Modulo3\Programacao de Dispositivos Windows Phone - Fernando Salina\TrabalhoFinal\ArduinoComandoVoz\ArduinoComandoVoz\ArduinoComandoVoz.csproj;x86

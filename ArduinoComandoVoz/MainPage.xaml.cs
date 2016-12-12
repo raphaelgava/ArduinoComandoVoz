@@ -19,9 +19,6 @@ using Windows.Networking;
 using Windows.Networking.Connectivity;
 using Windows.Networking.Sockets;
 using Windows.Storage.Streams;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -37,8 +34,30 @@ namespace ArduinoComandoVoz
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            this.InitializeComponent();            
         }
+
+        private async void btnOk_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuario = UsuarioDB.GetUsuario(txtLogin.Text, pwdSenha.Password);
+
+            if (usuario != null)
+            {
+                Frame.Navigate(typeof(Opcoes));
+            }
+            else
+            {
+                var dialog = new Windows.UI.Popups.MessageDialog("Usuário/Senha Inválidos!!!");
+                await dialog.ShowAsync();
+            }
+        }
+
+        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            Frame.Navigate(typeof(Cadastro));
+        }
+
         private ConexaoTCP _socket;
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -59,7 +78,7 @@ namespace ArduinoComandoVoz
             //MessageDialog msgbox = new MessageDialog(msg);
             //    msgbox.ShowAsync();
 
-            //_socket.Send("OIiii!!!\n");
+            _socket.Send("OIiii!!!\n");
             */
 
             if (_socket != null)
@@ -87,5 +106,6 @@ namespace ArduinoComandoVoz
             Debug.WriteLine("send");
             _socket.Send("TESTE\r\n");
         }
+        
     }
 }

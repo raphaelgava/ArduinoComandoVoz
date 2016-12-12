@@ -7,10 +7,22 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:ConnectionId='1' x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="157,307,0,0" VerticalAlignment="Top"                     />
-        <Button x:ConnectionId='2' x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="157,209,0,0" VerticalAlignment="Top"                      />
-
+    <Grid Padding="0">
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="imagens/background.png"/>
+        </Grid.Background>
+        <Grid HorizontalAlignment="Left" Height="463" Margin="20,0,0,0" VerticalAlignment="Top" Width="340" Padding="10">
+            <Image x:ConnectionId='3' x:Name="imgLogo" HorizontalAlignment="Left" Height="100" Margin="210,10,0,0" VerticalAlignment="Top" Width="100" Source="imagens/icone.png" Stretch="Fill">
+            </Image>
+            <TextBlock x:ConnectionId='4' x:Name="txtBlLogin" HorizontalAlignment="Left" Height="22" Margin="10,167,0,0" TextWrapping="Wrap" Text="Entre com o login" VerticalAlignment="Top" Width="300"/>
+            <TextBox x:ConnectionId='5' x:Name="txtLogin" HorizontalAlignment="Left" Height="0" Margin="0,199,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="300"/>
+            <TextBlock x:ConnectionId='6' x:Name="txtBlSenha" HorizontalAlignment="Left" Height="22" Margin="10,246,0,0" TextWrapping="Wrap" Text="Entre com a senha" VerticalAlignment="Top" Width="300"/>
+            <PasswordBox x:ConnectionId='7' x:Name="pwdSenha" HorizontalAlignment="Left" Height="5" Margin="0,278,0,0" VerticalAlignment="Top" Width="300"/>
+            <Button x:ConnectionId='8' x:Name="btnOk" Content="Ok" HorizontalAlignment="Left" Height="34" Margin="0,325,0,0" VerticalAlignment="Top" Width="300"                    />
+            <HyperlinkButton x:ConnectionId='9' Content="Novo Usuário" HorizontalAlignment="Left" Height="38" Margin="10,374,0,0" VerticalAlignment="Top" Width="300"                               Foreground="White" />
+        </Grid>
+        <Button x:ConnectionId='1' x:Name="button" Content="Conectar" HorizontalAlignment="Left" Margin="47,468,0,0" VerticalAlignment="Top" Width="243"                     />
+        <Button x:ConnectionId='2' x:Name="button1" Content="Enviar" HorizontalAlignment="Left" Margin="47,505,0,0" VerticalAlignment="Top" Width="243"                      />
     </Grid>
 </Page>
 

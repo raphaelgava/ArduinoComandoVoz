@@ -32,6 +32,7 @@ namespace ArduinoComandoVoz
             this.Suspending += OnSuspending;
 
             UsuarioDB.LoadDatabase();
+            ConexaoDB.LoadDatabase();
         }
 
         /// <summary>

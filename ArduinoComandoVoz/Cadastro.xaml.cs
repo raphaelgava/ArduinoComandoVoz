@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -24,15 +25,24 @@ namespace ArduinoComandoVoz
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
         {
-            Usuario usuario = new Usuario();
+            try
+            {
+                Usuario usuario = new Usuario();
 
-            usuario.Login = txtLogin.Text;
-            usuario.Senha = pwdSenha.Password;
-            usuario.Nome = txtNome.Text;
+                usuario.Login = txtLogin.Text;
+                usuario.Senha = pwdSenha.Password;
+                usuario.Nome = txtNome.Text;
 
-            UsuarioDB.SalvarUsuario(usuario);
-
-            Frame.Navigate(typeof(MainPage));
+                UsuarioDB.SalvarUsuario(usuario);
+            }
+            catch (Exception exception)
+            {
+                Debug.WriteLine("ERRO: " + exception.ToString());
+            }
+            finally
+            {
+                Frame.Navigate(typeof(MainPage));
+            }
         }
     }
 }

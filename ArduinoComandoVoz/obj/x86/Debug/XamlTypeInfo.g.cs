@@ -132,25 +132,27 @@ namespace ArduinoComandoVoz.ArduinoComandoVoz_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[8];
+            _typeNameTable = new string[9];
             _typeNameTable[0] = "ArduinoComandoVoz.About";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "ArduinoComandoVoz.Cadastro";
-            _typeNameTable[4] = "ArduinoComandoVoz.Controle";
-            _typeNameTable[5] = "ArduinoComandoVoz.Lista";
-            _typeNameTable[6] = "ArduinoComandoVoz.MainPage";
-            _typeNameTable[7] = "ArduinoComandoVoz.Opcoes";
+            _typeNameTable[4] = "ArduinoComandoVoz.CadastroTCP";
+            _typeNameTable[5] = "ArduinoComandoVoz.Controle";
+            _typeNameTable[6] = "ArduinoComandoVoz.Lista";
+            _typeNameTable[7] = "ArduinoComandoVoz.MainPage";
+            _typeNameTable[8] = "ArduinoComandoVoz.Opcoes";
 
-            _typeTable = new global::System.Type[8];
+            _typeTable = new global::System.Type[9];
             _typeTable[0] = typeof(global::ArduinoComandoVoz.About);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::ArduinoComandoVoz.Cadastro);
-            _typeTable[4] = typeof(global::ArduinoComandoVoz.Controle);
-            _typeTable[5] = typeof(global::ArduinoComandoVoz.Lista);
-            _typeTable[6] = typeof(global::ArduinoComandoVoz.MainPage);
-            _typeTable[7] = typeof(global::ArduinoComandoVoz.Opcoes);
+            _typeTable[4] = typeof(global::ArduinoComandoVoz.CadastroTCP);
+            _typeTable[5] = typeof(global::ArduinoComandoVoz.Controle);
+            _typeTable[6] = typeof(global::ArduinoComandoVoz.Lista);
+            _typeTable[7] = typeof(global::ArduinoComandoVoz.MainPage);
+            _typeTable[8] = typeof(global::ArduinoComandoVoz.Opcoes);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -187,10 +189,11 @@ namespace ArduinoComandoVoz.ArduinoComandoVoz_XamlTypeInfo
 
         private object Activate_0_About() { return new global::ArduinoComandoVoz.About(); }
         private object Activate_3_Cadastro() { return new global::ArduinoComandoVoz.Cadastro(); }
-        private object Activate_4_Controle() { return new global::ArduinoComandoVoz.Controle(); }
-        private object Activate_5_Lista() { return new global::ArduinoComandoVoz.Lista(); }
-        private object Activate_6_MainPage() { return new global::ArduinoComandoVoz.MainPage(); }
-        private object Activate_7_Opcoes() { return new global::ArduinoComandoVoz.Opcoes(); }
+        private object Activate_4_CadastroTCP() { return new global::ArduinoComandoVoz.CadastroTCP(); }
+        private object Activate_5_Controle() { return new global::ArduinoComandoVoz.Controle(); }
+        private object Activate_6_Lista() { return new global::ArduinoComandoVoz.Lista(); }
+        private object Activate_7_MainPage() { return new global::ArduinoComandoVoz.MainPage(); }
+        private object Activate_8_Opcoes() { return new global::ArduinoComandoVoz.Opcoes(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -224,30 +227,37 @@ namespace ArduinoComandoVoz.ArduinoComandoVoz_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 4:   //  ArduinoComandoVoz.Controle
+            case 4:   //  ArduinoComandoVoz.CadastroTCP
                 userType = new global::ArduinoComandoVoz.ArduinoComandoVoz_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_Controle;
+                userType.Activator = Activate_4_CadastroTCP;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 5:   //  ArduinoComandoVoz.Lista
+            case 5:   //  ArduinoComandoVoz.Controle
                 userType = new global::ArduinoComandoVoz.ArduinoComandoVoz_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_5_Lista;
+                userType.Activator = Activate_5_Controle;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 6:   //  ArduinoComandoVoz.MainPage
+            case 6:   //  ArduinoComandoVoz.Lista
                 userType = new global::ArduinoComandoVoz.ArduinoComandoVoz_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_MainPage;
+                userType.Activator = Activate_6_Lista;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  ArduinoComandoVoz.Opcoes
+            case 7:   //  ArduinoComandoVoz.MainPage
                 userType = new global::ArduinoComandoVoz.ArduinoComandoVoz_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_7_Opcoes;
+                userType.Activator = Activate_7_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 8:   //  ArduinoComandoVoz.Opcoes
+                userType = new global::ArduinoComandoVoz.ArduinoComandoVoz_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_8_Opcoes;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

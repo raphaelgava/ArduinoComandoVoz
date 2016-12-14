@@ -41,5 +41,15 @@ namespace ArduinoComandoVoz
         {
             Frame.Navigate(typeof(Lista));
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
+
+        private void btnConexao_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(CadastroTCP));
+        }
     }
 }

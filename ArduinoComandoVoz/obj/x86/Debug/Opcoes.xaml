@@ -17,6 +17,8 @@
         <TextBlock x:ConnectionId='4' x:Name="textBlock" HorizontalAlignment="Right" Margin="0,71,173,0" TextWrapping="Wrap" Text="Controle Leds" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Foreground="Black"/>
         <TextBlock x:ConnectionId='5' x:Name="textBlock_Copy" HorizontalAlignment="Right" Margin="0,219,173,0" TextWrapping="Wrap" Text="Lista Usuários" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Foreground="Black"/>
         <TextBlock x:ConnectionId='6' x:Name="textBlock_Copy1" HorizontalAlignment="Right" Margin="0,383,173,0" TextWrapping="Wrap" Text="Sobre" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Foreground="Black"/>
+        <Button x:ConnectionId='7' x:Name="btnVoltar" Content="Voltar" HorizontalAlignment="Center" Margin="10,0,10,20" VerticalAlignment="Bottom" Height="49" Width="340" Background="#33FFFFFF"                      FontWeight="Bold" FontSize="20"/>
+        <Button x:ConnectionId='8' x:Name="btnConexao" Content="Configuração TCP" HorizontalAlignment="Center" Margin="10,0,10,74" VerticalAlignment="Bottom" Height="49" Width="340" Background="#33FFFFFF" FontWeight="Bold" FontSize="20"                         />
 
     </Grid>
 </Page>

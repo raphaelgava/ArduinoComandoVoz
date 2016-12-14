@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SQLite.Net;
 using SQLite.Net.Platform.WinRT;
 using System.IO;
+using ArduinoComandoVoz.classes;
 
 namespace ArduinoComandoVoz
 {
@@ -14,11 +15,14 @@ namespace ArduinoComandoVoz
         public static SQLiteConnection conn;
         public static void LoadDatabase()
         {
+            /*
             //SQLiteConnection.ClearAllPools();
 
             string dbPath = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "sqlitearduino.db");
 
             conn = new SQLiteConnection(new SQLitePlatformWinRT(), dbPath);
+            */
+            conn = DB.LoadDatabase();
             //conn.DropTable<Usuario>();
             conn.CreateTable<Usuario>();
         }

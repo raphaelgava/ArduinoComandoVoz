@@ -22,6 +22,7 @@ using Windows.Storage.Streams;
 using Windows.UI.Popups;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Windows.Data.Json;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -54,44 +55,23 @@ namespace ArduinoComandoVoz
 
         private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
         {
-
             Frame.Navigate(typeof(Cadastro));
         }
-
+        /*
         private ConexaoTCP _socket;
-        private void button_Click(object sender, RoutedEventArgs e)
+        private async void button_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            if (_socket == null)
-            {
-                //_socket = new ConexaoTCP("192.168.1.177", Convert.ToInt32("23"));
-                //_socket.Connect();
-                _socket = new ConexaoTCP();
-                _socket.connect("192.168.1.177", "23", "Ola!!!");
-            }
-            //_socket.send("obcd\r\n");
-            Debug.WriteLine("ESCREVEU!!!");
-            Task<String> msg = _socket.read();
-            Debug.WriteLine("result:: " + msg.Result);
-            //_socket.send(msg.Result);
-            //_socket.send("\r\naaaaaa\r\n");
-            //MessageDialog msgbox = new MessageDialog(msg);
-            //    msgbox.ShowAsync();
-
-            _socket.Send("OIiii!!!\n");
-            */
-
             if (_socket != null)
             {
                 _socket.Close();
                 _socket.OnDataRecived -= socket_OnDataRecived;
                 _socket = null;
             }
-            _socket = new ConexaoTCP("192.168.1.177", Convert.ToInt32("23"));            
+            _socket = new ConexaoTCP(this,"192.168.1.177", Convert.ToInt32("23"));
             _socket.OnDataRecived += socket_OnDataRecived;
             _socket.Connect();
 
-            //_socket.Send("AQUI!");
+            Task.Run(() => _socket.Read());
         }
 
         private void socket_OnDataRecived(string data)
@@ -104,8 +84,22 @@ namespace ArduinoComandoVoz
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("send");
-            _socket.Send("TESTE\r\n");
+            JsonObject jsonObject = new JsonObject();
+            jsonObject.SetNamedValue("led1", JsonValue.CreateNumberValue(255));
+
+            //JsonObject jsonObject = new JsonObject
+            //{
+            //   {"led1", JsonValue.CreateStringValue("255")}
+            //};
+            string teste = jsonObject.ToString();
+            _socket.Send(teste);
         }
-        
+
+        public static void receiveCallback(String message)
+        {
+            Debug.WriteLine("receiveCallback " + message);
+        }
+        */
+
     }
 }

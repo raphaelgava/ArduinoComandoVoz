@@ -16,7 +16,7 @@
             <TextBlock x:Name="txtBlMensagem" TextWrapping="Wrap" Text="Selecione um item" FontSize="18"/>
         </StackPanel>
         <Grid Height="427" Margin="0,0,0,129" VerticalAlignment="Bottom" Width="340" Padding="0">
-            <ListBox x:Name="lstUsuario" ItemsSource="{Binding}"  SelectionChanged="lstUsuario_SelectionChanged" VerticalAlignment="Top">
+            <ListBox x:Name="lstUsuario" ItemsSource="{Binding}"  SelectionChanged="lstUsuario_SelectionChanged" VerticalAlignment="Top" Background="#FFEC7373" DoubleTapped="lstUsuario_DoubleTapped">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

@@ -16,7 +16,7 @@
             <TextBlock x:ConnectionId='4' x:Name="txtBlMensagem" TextWrapping="Wrap" Text="Selecione um item" FontSize="18"/>
         </StackPanel>
         <Grid Height="427" Margin="0,0,0,129" VerticalAlignment="Bottom" Width="340" Padding="0">
-            <ListBox x:ConnectionId='2' x:Name="lstUsuario" ItemsSource="{Binding}"                                                 VerticalAlignment="Top">
+            <ListBox x:ConnectionId='2' x:Name="lstUsuario" ItemsSource="{Binding}"                                                 VerticalAlignment="Top" Background="#FFEC7373"                                       >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

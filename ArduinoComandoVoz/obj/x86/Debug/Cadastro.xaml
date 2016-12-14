@@ -20,7 +20,7 @@
             <TextBlock x:ConnectionId='7' x:Name="txtBlNome" TextWrapping="Wrap" Text="Nome" FontSize="18"/>
             <TextBox x:ConnectionId='8' x:Name="txtNome" TextWrapping="Wrap" Text=""/>
         </StackPanel>
-        <Button x:ConnectionId='2' x:Name="btnOk" Content="Ok" HorizontalAlignment="Left" Height="34" Margin="10,260,0,0" VerticalAlignment="Top" Width="330"                    />
+        <Button x:ConnectionId='2' x:Name="btnOk" Content="Ok" HorizontalAlignment="Center" Height="34" Margin="0,260,0,0" VerticalAlignment="Top" Width="330"                    />
 
     </Grid>
 </Page>

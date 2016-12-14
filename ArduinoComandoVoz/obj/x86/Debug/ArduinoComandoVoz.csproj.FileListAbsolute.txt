@@ -223,3 +223,4 @@ D:\IFSP\Modulo3\Programacao de Dispositivos Windows Phone - Fernando Salina\Trab
 D:\IFSP\Modulo3\Programacao de Dispositivos Windows Phone - Fernando Salina\TrabalhoFinal\ArduinoComandoVoz\ArduinoComandoVoz\obj\x86\Debug\qualifiers.txt.intermediate
 D:\IFSP\Modulo3\Programacao de Dispositivos Windows Phone - Fernando Salina\TrabalhoFinal\ArduinoComandoVoz\ArduinoComandoVoz\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 D:\IFSP\Modulo3\Programacao de Dispositivos Windows Phone - Fernando Salina\TrabalhoFinal\ArduinoComandoVoz\ArduinoComandoVoz\obj\x86\Debug\ProjectArchitectures.txt
+D:\IFSP\Modulo3\Programacao de Dispositivos Windows Phone - Fernando Salina\TrabalhoFinal\ArduinoComandoVoz\ArduinoComandoVoz\obj\x86\Debug\ArduinoComandoVoz.csprojResolveAssemblyReference.cache

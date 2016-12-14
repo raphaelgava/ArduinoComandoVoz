@@ -60,10 +60,15 @@ namespace ArduinoComandoVoz
                         con.ip = txtHost.Text;
                         con.porta = int.Parse(txtPort.Text);
                         ConexaoDB.SalvarConexao(con);
+
+                        var dialog = new Windows.UI.Popups.MessageDialog("Campos Atualizados!");
+                        await dialog.ShowAsync();
                     }
                     catch (Exception exception)
                     {
                         Debug.WriteLine("ERRO: " + exception.ToString());
+                        var dialog = new Windows.UI.Popups.MessageDialog("Erro ao cadastrar!");
+                        await dialog.ShowAsync();
                     }
                 }
                 else

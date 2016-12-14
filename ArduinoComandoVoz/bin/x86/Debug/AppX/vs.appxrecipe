@@ -28,13 +28,13 @@
     <AppXManifest Include="D:\IFSP\Modulo3\Programacao de Dispositivos Windows Phone - Fernando Salina\TrabalhoFinal\ArduinoComandoVoz\ArduinoComandoVoz\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-14T02:02:01.619</Modified>
+      <Modified>2016-12-14T03:57:49.828</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\IFSP\Modulo3\Programacao de Dispositivos Windows Phone - Fernando Salina\TrabalhoFinal\ArduinoComandoVoz\ArduinoComandoVoz\bin\x86\Debug\ArduinoComandoVoz.exe">
       <PackagePath>entrypoint\ArduinoComandoVoz.exe</PackagePath>
-      <Modified>2016-12-14T02:01:55.949</Modified>
+      <Modified>2016-12-14T03:57:47.480</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\rapha\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -539,7 +539,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\IFSP\Modulo3\Programacao de Dispositivos Windows Phone - Fernando Salina\TrabalhoFinal\ArduinoComandoVoz\ArduinoComandoVoz\bin\x86\Debug\ArduinoComandoVoz.xr.xml">
       <PackagePath>ArduinoComandoVoz.xr.xml</PackagePath>
-      <Modified>2016-12-14T01:05:58.304</Modified>
+      <Modified>2016-12-14T03:57:46.995</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -548,11 +548,11 @@
     <AppxPackagedFile Include="D:\IFSP\Modulo3\Programacao de Dispositivos Windows Phone - Fernando Salina\TrabalhoFinal\ArduinoComandoVoz\ArduinoComandoVoz\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-14T02:01:59.966</Modified>
+      <Modified>2016-12-14T03:57:49.244</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\IFSP\Modulo3\Programacao de Dispositivos Windows Phone - Fernando Salina\TrabalhoFinal\ArduinoComandoVoz\ArduinoComandoVoz\bin\x86\Debug\Core\ArduinoComandoVoz.exe">
       <PackagePath>ArduinoComandoVoz.exe</PackagePath>
-      <Modified>2016-12-14T02:02:01.604</Modified>
+      <Modified>2016-12-14T03:57:49.822</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

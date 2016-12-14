@@ -23,7 +23,7 @@ namespace ArduinoComandoVoz
             this.InitializeComponent();
         }
 
-        private void btnOk_Click(object sender, RoutedEventArgs e)
+        private async void btnOk_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -34,14 +34,13 @@ namespace ArduinoComandoVoz
                 usuario.Nome = txtNome.Text;
 
                 UsuarioDB.SalvarUsuario(usuario);
+                Frame.Navigate(typeof(MainPage));
             }
             catch (Exception exception)
             {
                 Debug.WriteLine("ERRO: " + exception.ToString());
-            }
-            finally
-            {
-                Frame.Navigate(typeof(MainPage));
+                var dialog = new Windows.UI.Popups.MessageDialog("Erro ao cadastrar!");
+                await dialog.ShowAsync();
             }
         }
     }

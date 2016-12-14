@@ -54,7 +54,8 @@ namespace ArduinoComandoVoz
 
             if (lista != null)
             {
-                return lista.ToArray()[index];
+                if ((index > -1) && (lista.Count > index))
+                    return lista.ToArray()[index];
             }
             return null;
         }

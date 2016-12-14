@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArduinoComandoVoz.classes;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,12 +30,8 @@ namespace ArduinoComandoVoz
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            Sintetizador.sintetizar("Thank you for the great grade dear professor!");
             Frame.Navigate(typeof(Opcoes));
-        }
-
-        private void textBlock_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
+        }        
     }
 }

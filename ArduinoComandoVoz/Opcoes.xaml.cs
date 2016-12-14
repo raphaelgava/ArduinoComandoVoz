@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ArduinoComandoVoz.classes;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,27 @@ namespace ArduinoComandoVoz
         public Opcoes()
         {
             this.InitializeComponent();
+        }
+
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Usuario parameter = e.Parameter as Usuario;
+
+            if (parameter != null)
+            {
+                if (parameter.Nome != "")
+                {
+                    textNome.Text = parameter.Nome;
+                    Sintetizador.sintetizar("Welcome " + parameter.Nome);
+                    /*
+                    MediaElement media = new MediaElement();
+                    var synth = new Windows.Media.SpeechSynthesis.SpeechSynthesizer();
+                    Windows.Media.SpeechSynthesis.SpeechSynthesisStream stream = await synth.SynthesizeTextToStreamAsync("Welcome " + parameter.Nome);
+                    media.SetSource(stream, stream.ContentType);
+                    media.Play();
+                    */
+                }
+            }
         }
 
         private void imgAbout_PointerReleased(object sender, PointerRoutedEventArgs e)

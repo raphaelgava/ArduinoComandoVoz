@@ -106,6 +106,7 @@
     <Compile Include="CadastroTCP.xaml.cs">
       <DependentUpon>CadastroTCP.xaml</DependentUpon>
     </Compile>
+    <Compile Include="classes\Sintetizador.cs" />
     <Compile Include="Controle.xaml.cs">
       <DependentUpon>Controle.xaml</DependentUpon>
     </Compile>

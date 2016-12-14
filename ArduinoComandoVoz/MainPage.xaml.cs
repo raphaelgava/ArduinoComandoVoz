@@ -23,6 +23,7 @@ using Windows.UI.Popups;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.Data.Json;
+using ArduinoComandoVoz.classes;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -35,7 +36,8 @@ namespace ArduinoComandoVoz
     {
         public MainPage()
         {
-            this.InitializeComponent();            
+            this.InitializeComponent();
+            Sintetizador.sintetizar("Hello, insert your login and password");
         }
 
         private async void btnOk_Click(object sender, RoutedEventArgs e)
@@ -44,7 +46,7 @@ namespace ArduinoComandoVoz
 
             if (usuario != null)
             {
-                Frame.Navigate(typeof(Opcoes));
+                Frame.Navigate(typeof(Opcoes), usuario);
             }
             else
             {

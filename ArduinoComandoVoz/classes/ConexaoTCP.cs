@@ -92,7 +92,7 @@ namespace ArduinoComandoVoz
                 // If no response comes back within this time then proceed
                 _clientDone.WaitOne(TIMEOUT_MILLISECONDS);
 
-
+                Send("Hello!\n");
             }
             catch (Exception ex)
             {
@@ -155,6 +155,7 @@ namespace ArduinoComandoVoz
                 while (true)
                 {
                     string response = Receive();
+                    await Task.Delay(5);
                 }
 
             }

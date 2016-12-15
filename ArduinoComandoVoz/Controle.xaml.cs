@@ -4,9 +4,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Data.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -35,7 +37,10 @@ namespace ArduinoComandoVoz
                 try
                 {
                     tcp = new ConexaoTCP(this, db.ip, db.porta);
+                    //tcp.OnDataRecived += socket_OnDataRecived;
                     tcp.Connect();
+
+                    Task.Run(() => tcp.Read());
 
                     textBlock.Text = "CONTROLE: " + db.ip;
                 }catch(Exception e)
@@ -50,9 +55,61 @@ namespace ArduinoComandoVoz
             }
         }
 
-        public void receiveCallback(String message)
+        /*
+        private void socket_OnDataRecived(string data)
         {
-            Debug.WriteLine("receiveCallback " + message);
+            Debug.WriteLine("rec");
+            Debug.WriteLine(data);
+        }
+        */
+
+        public async void receiveCallback(String message)
+        {
+            //Debug.WriteLine("receiveCallback " + message);
+            if (message.StartsWith("{")) { 
+                JsonObject obj = JsonObject.Parse(message);
+                if (obj != null)
+                {
+                    foreach (var pair in obj)
+                    {
+                        int v = 0;
+                        try
+                        {
+                            Debug.WriteLine(pair.Key);
+                            JsonValue valor = obj.GetNamedValue(pair.Key);
+                            v = (int)valor.GetNumber();
+                            feedback(pair.Key, v);
+                        }
+                        catch (Exception except)
+                        {
+                            Debug.WriteLine(except.ToString());
+                            Debug.WriteLine(pair.Key + " - " + v);
+                        }
+                    }
+                }
+            }
+
+        }
+
+        private bool semaforoFeedback = false;
+        private void feedback(string key, int v)
+        {
+            if (v > 0)
+            {
+                v = 255;
+            }
+
+            Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                semaforoFeedback = true;
+                    switch (key)
+                    {
+                        case "bt0": sldLed1.Value = v; break;
+                        case "bt1": sldLed2.Value = v; break;
+                        case "bt2": sldLed3.Value = v; break;
+                    }
+                semaforoFeedback = false;
+            });
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -62,17 +119,18 @@ namespace ArduinoComandoVoz
             Frame.Navigate(typeof(Opcoes));
         }
 
-        private void enviarComando(int led, int valor)
+        private void enviarComando(int led, int valor, bool slider = false)
         {
             if (tcp != null) {
 
                 JsonObject jsonObject = new JsonObject();
                 string envio = "";
                 string texto = "";
+                string feed = "";
                 switch (led) {
-                    case 1: texto = "led1"; break;
-                    case 2: texto = "led2"; break;
-                    case 3: texto = "led3"; break;
+                    case 1: texto = "led1"; feed = "bt0";  break;
+                    case 2: texto = "led2"; feed = "bt1"; break;
+                    case 3: texto = "led3"; feed = "bt2"; break;
                     default:
                         texto = "led0";
                     break;
@@ -80,6 +138,11 @@ namespace ArduinoComandoVoz
                 jsonObject.SetNamedValue(texto, JsonValue.CreateNumberValue(valor));
                 envio = jsonObject.ToString();
                 tcp.Send(envio);
+
+                if ((feed != "") && (slider == false))
+                {
+                    feedback(feed, valor);
+                }
             }
             else
             {
@@ -135,40 +198,43 @@ namespace ArduinoComandoVoz
         
         private async void sld_Changed(object sender, RangeBaseValueChangedEventArgs e)
         {
-            Slider slider = (sender as Slider);
-            if (slider != null)
+            if (semaforoFeedback == false)
             {
-                if (slider.Equals(sldLed1))
+                Slider slider = (sender as Slider);
+                if (slider != null)
                 {
-                    Debug.WriteLine("Slider 1: " + slider.Value);
-                    enviarComando(1, (int)slider.Value);
-                }
-                else
-                {
-                    if (slider.Equals(sldLed2))
+                    if (slider.Equals(sldLed1))
                     {
-                        Debug.WriteLine("Slider 2: " + slider.Value);
-                        enviarComando(2, (int)slider.Value);
+                        Debug.WriteLine("Slider 1: " + slider.Value);
+                        enviarComando(1, (int)slider.Value, true);
                     }
                     else
                     {
-                        if (slider.Equals(sldLed3))
+                        if (slider.Equals(sldLed2))
                         {
-                            Debug.WriteLine("Slider 3: " + slider.Value);
-                            enviarComando(3, (int)slider.Value);
+                            Debug.WriteLine("Slider 2: " + slider.Value);
+                            enviarComando(2, (int)slider.Value, true);
                         }
                         else
                         {
-                            var dialog = new Windows.UI.Popups.MessageDialog("Slider inválido");
-                            await dialog.ShowAsync();
+                            if (slider.Equals(sldLed3))
+                            {
+                                Debug.WriteLine("Slider 3: " + slider.Value);
+                                enviarComando(3, (int)slider.Value, true);
+                            }
+                            else
+                            {
+                                var dialog = new Windows.UI.Popups.MessageDialog("Slider inválido");
+                                await dialog.ShowAsync();
+                            }
                         }
                     }
                 }
-            }
-            else
-            {
-                var dialog = new Windows.UI.Popups.MessageDialog("Slider não encontrado");
-                await dialog.ShowAsync();
+                else
+                {
+                    var dialog = new Windows.UI.Popups.MessageDialog("Slider não encontrado");
+                    await dialog.ShowAsync();
+                }
             }
         }
 

@@ -125,16 +125,26 @@ String ImprimirValor(byte valor)
 
 void AtualizarValorTCP(byte led, byte valor)
 {
+  Serial.println("AtualizarTCP");
   for (byte i = 0; i < numClientes; i++) {
     if (clients[i]) {
       // clear out the input buffer:
-      clients[i].flush();
+      String texto = "{\"bt";
+      texto.concat(led);
+      texto.concat("\":");
+      texto.concat(ImprimirValor(valor));
+      texto.concat("}");
       
+      clients[i].flush();
+      clients[i].print(texto);
+      Serial.println(texto);
+      /*
       clients[i].print("{\"bt");
       clients[i].print(led);
       clients[i].print("\":");
       clients[i].print(ImprimirValor(valor));
       clients[i].println("}");
+      */
     }
   }
 }
